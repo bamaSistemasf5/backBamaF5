@@ -3,6 +3,6 @@ import { LoginUsers } from "../controllers/loginControllers.js";
 
 const routes = express.Router()
 
-routes.get("/",LoginUsers)
+routes.post("/",LoginUsers)
 
 export default routes;

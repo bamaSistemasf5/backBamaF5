@@ -3,12 +3,12 @@ import LoginModels from "../models/loginModels.js";
 
 export const LoginUsers= async (req, res) => {
     // const { nombre,password } = req.body;
-    // const findUser = await LoginModels.findOne({where:{id_user:req.params.id}});
-    const findUser = await LoginModels.findAll();
-    res.status(200).json(findUser)
+    const findUser = await LoginModels.findOne({where:{nombre:req.body.nombre}});
+    // const findUser = await LoginModels.findOne();
+    res.status(200).json(findUser)}
     // console.log(findUser);
     // console.log(nombre);
-}
+
 //     console.log('Datos recibidos:', { nombre, password });
   
 //    try { const users = new LoginModels ( {
