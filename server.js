@@ -1,15 +1,16 @@
 import express from 'express';
 import cors from 'cors';
 import db from './db.js';
-import UsersRoutes from './routes/routes.js';
+import loginRoutes from './routes/loginRoutes.js'
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Configurar el middleware CORS
 app.use(cors())
 app.use(express.json())
-app.use("/", UsersRoutes)
+app.use("/", loginRoutes)
+
 
 
 
