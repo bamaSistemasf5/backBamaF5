@@ -1,3 +1,4 @@
+import e from 'express';
 import ClientModel from '../models/clientModel.js';
 
 export const createClient = async (req, res) => {
@@ -34,6 +35,27 @@ export const getClientById = async (req, res) => { // Cambia el nombre de la fun
     res.status(500).json({ error: 'Error al obtener el cliente' });
   }
 };
+export const updateClient = async (req, res) => {
+  const { id } = req.params; // Cambia id a cif_cliente
+  try {
+    const [updated] = await ClientModel.update(req.body, {
+      where: { cif_cliente: id } // Utiliza cif_cliente como el identificador único
+    });
+    if (updated) {
+      const updatedClient = await ClientModel.findOne({ where: { cif_cliente: id } });
+      res.json(updatedClient);
+    } else {
+      res.status(404).json({ error: 'Cliente no encontrado' });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Error al actualizar el cliente' });
+  }
+}
+
+
+
+        
 
 export const deleteClient = async (req, res) => {
   const { id } = req.params;
