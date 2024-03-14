@@ -4,7 +4,7 @@ import  db from './db.js';
 import loginRoutes from './routes/loginRoutes.js'
 import clientRoute from './routes/clientRoute.js'
 import clientsViewRoute from './routes/clientsViewRoute.js'
-// import clientsDeleteRoute from './routes/clientsDeleteRoute.js'
+import clientsDeleteRoute from './routes/deleteClientRoute.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 app.use("/", loginRoutes)
 app.get("/clients-view", clientsViewRoute)
-// app.delete("clients-view/:id", clientsDeleteRoute)
+app.delete("/clients-view/:id", clientsDeleteRoute)
 // app.put("clients-view/:id", clientsViewRoute)
 app.post("/api/clients", clientRoute)
 
