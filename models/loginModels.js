@@ -1,32 +1,29 @@
-// Importar el objeto 'db' desde el archivo db.js
 import db from "../db.js";
-// Importar el tipo de datos 'DataTypes' desde Sequelize
 import { DataTypes } from "sequelize";
 
-// Definir el modelo de la tabla de usuarios para la base de datos
 const LoginModel = db.define("users", {
-    // Definir el campo 'id_user' como un entero, y lo establece como clave primaria
     id_user: {
         type: DataTypes.INTEGER,
         primaryKey: true
     },
-    // Definir el campo 'nombre' como una cadena de texto que no puede ser nula
     nombre: {
         type: DataTypes.STRING,
-        allowNull: false // Asegura que el campo no pueda ser nulo
+        allowNull: false
     },
-    // Definir el campo 'password' como una cadena de texto que no puede ser nula
     password: {
         type: DataTypes.STRING,
-        allowNull: false // Asegura que el campo no pueda ser nulo
+        allowNull: false
     },
-    // Definir el campo 'id_rol' como una cadena de texto
     id_rol: {
-        type: DataTypes.STRING,
-        allowNull: false // Asegura que el campo no pueda ser nulo
+        type: DataTypes.INTEGER, // Cambia el tipo de datos a INTEGER para almacenar el ID del rol
+        allowNull: false,
+        references: {
+            model: 'roles', // Nombre de la tabla de roles
+            key: 'id' // Nombre de la columna de ID en la tabla de roles
+        }
     }
 });
 
-// Exportar el modelo de usuario para su uso en otras partes de la aplicación
 export default LoginModel;
+
 
