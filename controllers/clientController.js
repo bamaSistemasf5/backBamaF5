@@ -34,3 +34,20 @@ export const getClientById = async (req, res) => { // Cambia el nombre de la fun
     res.status(500).json({ error: 'Error al obtener el cliente' });
   }
 };
+
+export const deleteClient = async (req, res) => {
+  const { id } = req.params;
+  //console.log(id);
+  try {
+    const client = await ClientModel.findByPk(id);
+    if (client) {
+      await client.destroy();
+      res.json(client);
+    } else {
+      res.status(404).json({ error: 'Cliente no encontrado' });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Error al eliminar el cliente' });
+  }
+}

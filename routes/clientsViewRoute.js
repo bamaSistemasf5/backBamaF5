@@ -1,5 +1,5 @@
 import express from "express";
-import { clientsView } from "../controllers/clientController.js";
+import { clientsView} from "../controllers/clientController.js";
 
 const routes = express.Router();
 
