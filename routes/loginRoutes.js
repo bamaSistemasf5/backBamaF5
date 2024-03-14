@@ -1,14 +1,14 @@
-// Importar el módulo Express
-import express from "express";
-// Importar el controlador para la función de inicio de sesión
-import { LoginUsers } from "../controllers/loginControllers.js";
+// routes.js
+import express from 'express';
+import { LoginUsers } from '../controllers/loginControllers.js';
+import authenticateToken from '../middleware/authMiddleware.js'
 
-// Crear un nuevo enrutador utilizando Express
-const routes = express.Router();
+const router = express.Router();
 
-// Definir una ruta POST en la raíz del enrutador
-// Esta ruta manejará las solicitudes de inicio de sesión
-routes.post("/", LoginUsers);
+router.post("/", LoginUsers);
+router.get("/ruta-protegida", authenticateToken, (req, res) => {
+    res.json({ message: 'Ruta protegida' });
+});
 
-// Exportar el enrutador para su uso en otros archivos
-export default routes;
+export default router;
+

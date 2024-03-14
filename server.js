@@ -21,7 +21,6 @@ app.post("/api/clients", clientRoute)
 
 
 
-
 try {
   await db.authenticate()
   console.log("esta conectado")
