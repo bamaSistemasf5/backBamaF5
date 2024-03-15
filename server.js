@@ -12,17 +12,17 @@ const PORT = process.env.PORT || 3000;
 
 // Configurar el middleware CORS
 app.use(cors());
+
+//Rutas Clientes
 app.use(express.json());
 app.use("/", loginRoutes);
 app.get("/clients-view", clientsViewRoute);
 app.delete("/clients-view/:id", deleteClientRoute);
-
-// Corrige las rutas para el manejo de clientes
-app.put("/update-client/:id", updateClientRoute); // Cambiado de ':cif_cliente' a ':id'
-app.get("/update-client/:id", updateClientRoute); // Cambiado de ':cif_cliente' a ':id'
-
+app.put("/update-client/:id", updateClientRoute); 
+app.get("/update-client/:id", updateClientRoute); 
 app.post("/api/clients", clientRoute);
-
+//Rutas Albaranes
+// app.get("/delivery-notes", deliveryNotesRoute);
 try {
   await db.authenticate();
   console.log("Está conectado");
