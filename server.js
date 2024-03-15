@@ -20,7 +20,7 @@ app.get("/clients-view", clientsViewRoute);
 app.delete("/clients-view/:id", deleteClientRoute);
 app.put("/update-client/:id", updateClientRoute); 
 app.get("/update-client/:id", updateClientRoute); 
-app.post("/api/clients", clientRoute);
+app.post("/create-client", clientRoute);
 //Rutas Albaranes
 // app.get("/delivery-notes", deliveryNotesRoute);
 try {
