@@ -6,7 +6,6 @@ import clientRoute from './routes/clientRoute.js';
 import clientsViewRoute from './routes/clientsViewRoute.js';
 import deleteClientRoute from './routes/deleteClientRoute.js';
 import updateClientRoute from './routes/updateClientRoute.js';
-import deliveryNotesRoute from './routes/deliveryNotesRoute.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,10 +22,7 @@ app.put("/update-client/:id", updateClientRoute);
 app.get("/update-client/:id", updateClientRoute); 
 app.post("/api/clients", clientRoute);
 //Rutas Albaranes
-app.get("/delivery-notes", deliveryNotesRoute);
-app.get("/edit-delivery-note/:id", editDeliveryNoteRoute);
-app.post("/delivery-notes", createDeliveryNoteRoute);
-app.put("/edit-delivery-note/:id", editDeliveryNoteRoute);
+// app.get("/delivery-notes", deliveryNotesRoute);
 try {
   await db.authenticate();
   console.log("Está conectado");
