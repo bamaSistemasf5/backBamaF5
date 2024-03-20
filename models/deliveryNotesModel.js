@@ -1,4 +1,4 @@
-import db from "../db.js";
+import  db  from "../database/db.js";
 import { DataTypes } from "sequelize";
 
 const deliveryNotesModel = db.define(
@@ -28,6 +28,9 @@ const deliveryNotesModel = db.define(
     },
   },
   {
+    // Desactiva la creación automática de 'createdAt' y 'updatedAt'
     timestamps: false,
   }
 );
+
+export default deliveryNotesModel;
