@@ -5,7 +5,7 @@ const invoiceModel = db.define("vista_facturas", {
   nro_factura: {
     type: DataTypes.NUMBER,
     allowNull: false,
-    primaryKey: true // Especifica que 'nro_factura' es la clave primaria
+    primaryKey: true 
   },
   fecha: {
     type: DataTypes.DATE,

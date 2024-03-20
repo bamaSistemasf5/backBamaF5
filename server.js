@@ -27,7 +27,7 @@ app.post("/api/clients", clientRoute);
 
 //Ruta vista factura
 app.get("/invoices-view", invoicesViewRoute);
-// app.post("/invoices", createInvoiceRoute); 
+app.post("/create-invoice", createInvoiceRoute); 
 // app.get("/invoices/:id", getInvoiceRoute); 
 // app.put("/invoices/:id", updateInvoiceRoute); 
 // app.delete("/invoices/:id", deleteInvoiceRoute); 

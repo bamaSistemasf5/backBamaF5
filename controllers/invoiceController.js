@@ -13,7 +13,7 @@ export const createInvoice= async (req, res) => {
 
 export const invoicesView = async (req, res) => {
   try {
-    const invoices = await InvoiceModel.findAll(); // Utiliza el método `findAll()` para obtener todos los clientes
+    const invoices = await InvoiceModel.findAll(); 
     res.json(invoices);
   } catch (error) {
     console.log(error);
