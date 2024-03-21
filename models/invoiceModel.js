@@ -32,15 +32,15 @@ const invoiceModel = db.define("vista_facturas", {
     type: DataTypes.STRING,
     allowNull: false
   },
-  base_imponible: {
-    type: DataTypes.FLOAT,
-    allowNull: false
-  },
-  porc_iva: {
-    type: DataTypes.FLOAT,
-    allowNull: false
-  },
-  importe_iva: {
+  // base_imponible: {
+  //   type: DataTypes.FLOAT,
+  //   allowNull: false
+  // },
+  // porc_iva: {
+  //   type: DataTypes.FLOAT,
+  //   allowNull: false
+  // },
+  iva_total: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
