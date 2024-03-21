@@ -1,8 +1,8 @@
 import db from "../database/db.js";
 import { DataTypes } from "sequelize";
 
-const vistaAlbaranesModel = db.define(
-  "VistaAlbaranes",
+const DevileryNotesModel = db.define(
+  "vista_albaranes",
   {
     No_albaran: {
       type: DataTypes.INTEGER,
@@ -39,4 +39,4 @@ const vistaAlbaranesModel = db.define(
   }
 );
 
-export default vistaAlbaranesModel;
+export default DevileryNotesModel;

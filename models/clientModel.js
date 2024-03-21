@@ -1,7 +1,7 @@
 import db from "../database/db.js";
 import { DataTypes } from "sequelize";
 
-const clientModel = db.define(
+const ClientModel = db.define(
   "clientes",
   {
     cif_cliente: {
@@ -48,4 +48,4 @@ const clientModel = db.define(
   }
 );
 
-export default clientModel;
+export default ClientModel;
