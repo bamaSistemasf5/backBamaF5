@@ -1,33 +1,42 @@
-import db from "../db.js";
+import db from "../database/db.js";
 import { DataTypes } from "sequelize";
 
-const deliveryNotesModel = db.define(
-  "vista_albaranes",
+const vistaAlbaranesModel = db.define(
+  "VistaAlbaranes",
   {
-    id_albaran: {
+    No_albaran: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
-    id_pedido: {
+    Fecha_albaran: {
       type: DataTypes.DATE,
-      allowNull: false,
     },
-    cif_cliente: {
+    Cliente: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    concepto: {
+    CIF_cliente: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    importe: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
+    Importe: {
+      type: DataTypes.DECIMAL(37, 2),
+    },
+    Facturado_o_no_facturado: {
+      type: DataTypes.STRING,
+    },
+    Pedido: {
+      type: DataTypes.INTEGER,
+    },
+    Producto: {
+      type: DataTypes.INTEGER,
+    },
+    Firmado: {
+      type: DataTypes.BOOLEAN,
     },
   },
   {
+    tableName: "vista_albaranes",
     timestamps: false,
   }
 );
+
+export default vistaAlbaranesModel;

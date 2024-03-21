@@ -1,6 +1,6 @@
 // loginController.js
 import jwt from "jsonwebtoken";
-import LoginModel from "../models/loginModels.js";
+import LoginModel from "../models/loginModel.js";
 
 export const LoginUsers = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ export const LoginUsers = async (req, res) => {
         });
 
         if (!user || req.body.password !== user.password) {
-            return res.status(401).json({ message: "Nombre de usuario o contraseña incorrectos" });
+            return res.status(401).json({ message: "Username or password incorrect" });
         }
 
         const role = user.id_rol === 2 ? 'admin' : 'usuario'; 
@@ -28,10 +28,10 @@ export const LoginUsers = async (req, res) => {
         console.log(role);
         
         
-        res.status(200).json({ token,userid, message: `Inicio de sesión exitoso como ${role === 'admin' ? 'administrador' : 'usuario'}`});
+        res.status(200).json({ token,userid, message: ` Successful login as ${role === 'admin' ? 'administrator' : 'user'}`});
     } catch (error) {
-        console.error("Error al iniciar sesión:", error);
-        res.status(500).json({ message: "Error interno del servidor" });
+        console.error("Failed to login:", error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 };
 
