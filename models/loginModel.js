@@ -15,11 +15,11 @@ const LoginModel = db.define(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: yes,
+      allowNull: true,
     },
     id_rol: {
       type: DataTypes.INTEGER, // Cambia el tipo de datos a INTEGER para almacenar el ID del rol
-      allowNull: yes,
+      allowNull: true,
       references: {
         model: "roles", // Nombre de la tabla de roles
         key: "id", // Nombre de la columna de ID en la tabla de roles
