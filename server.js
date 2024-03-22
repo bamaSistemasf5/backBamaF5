@@ -9,7 +9,7 @@ import ordersRoutes from './routes/ordersRoutes.js';
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Configurar el middleware CORS
 app.use(cors());
@@ -22,11 +22,11 @@ app.use("/order", ordersRoutes);
 
 try {
   await db.authenticate();
-  console.log("Está conectado");
+  console.log("Connection has been established successfully.");
 } catch (error) {
   console.log(error);
 }
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
