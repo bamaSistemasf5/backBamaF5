@@ -1,4 +1,3 @@
-import e from 'express';
 import ClientModel from '../models/clientModel.js';
 
 export const createClient = async (req, res) => {
@@ -11,13 +10,13 @@ export const createClient = async (req, res) => {
   }
 };
 
-export const clientsView = async (req, res) => {
+export const getClients = async (req, res) => {
   try {
     const clients = await ClientModel.findAll(); // Utiliza el método `findAll()` para obtener todos los clientes
     res.json(clients);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Error al obtener los clientes' });
+    res.status(500).json({ error: 'Error getting clients' });
   }
 };
 
@@ -28,13 +27,14 @@ export const getClientById = async (req, res) => { // Cambia el nombre de la fun
     if (client) {
       res.json(client);
     } else {
-      res.status(404).json({ error: 'Cliente no encontrado' });
+      res.status(404).json({ error: 'Client not found' });
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Error al obtener el cliente' });
+    res.status(500).json({ error: 'Error getting client' });
   }
 };
+
 export const updateClient = async (req, res) => {
   const { id } = req.params; // Cambia id a cif_cliente
   try {
@@ -45,17 +45,13 @@ export const updateClient = async (req, res) => {
       const updatedClient = await ClientModel.findOne({ where: { cif_cliente: id } });
       res.json(updatedClient);
     } else {
-      res.status(404).json({ error: 'Cliente no encontrado' });
+      res.status(404).json({ error: 'Client not found' });
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Error al actualizar el cliente' });
+    res.status(500).json({ error: 'Error updating client' });
   }
 }
-
-
-
-        
 
 export const deleteClient = async (req, res) => {
   const { id } = req.params;
@@ -66,10 +62,10 @@ export const deleteClient = async (req, res) => {
       await client.destroy();
       res.json(client);
     } else {
-      res.status(404).json({ error: 'Cliente no encontrado' });
+      res.status(404).json({ error: 'Client not found' });
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Error al eliminar el cliente' });
+    res.status(500).json({ error: 'Error deleting client' });
   }
 }
