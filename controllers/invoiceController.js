@@ -40,14 +40,20 @@ export const downloadInvoicePDF = async (req, res) => {
     // Definir el nombre del archivo PDF
     const fileName = `invoice_${invoiceData.nro_factura}.pdf`;
 
-    // Genera el documento PDF
-    doc.pipe(fs.createWriteStream(fileName));
-
     // Escribe los datos de la factura en el PDF
     doc.text(`Número de factura: ${invoiceData.nro_factura}`);
     doc.text(`Fecha: ${invoiceData.fecha}`);
+    doc.text(`Cliente: ${invoiceData.cliente}`);
+    doc.text(`Cif Cliente: ${invoiceData.cif_cliente}`);
+    doc.text(`Fecha de vencimiento: ${invoiceData.fecha_vencimiento}`);
+    doc.text(`Fecha de cobro: ${invoiceData.fecha_cobro}`);
+    doc.text(`Base imponible: ${invoiceData.base_imponible}`);
+    doc.text(`Total IVA: ${invoiceData.iva_total}`);
+    doc.text(`Total Factura: ${invoiceData.total_factura}`);
     // Añade más información de la factura según sea necesario
-
+    
+    // Genera el documento PDF en el servidor
+    doc.pipe(fs.createWriteStream(fileName));
     doc.end();
 
     // Envía el PDF como una respuesta al navegador
