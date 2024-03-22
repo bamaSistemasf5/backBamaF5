@@ -7,7 +7,7 @@ import clientsViewRoute from './routes/clientsViewRoute.js';
 import deleteClientRoute from './routes/deleteClientRoute.js';
 import updateClientRoute from './routes/updateClientRoute.js';
 import invoicesViewRoute from './routes/invoicesViewRoute.js';
-import createInvoiceRoute from './routes/createInvoiceRoute.js';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,13 +27,14 @@ app.post("/api/clients", clientRoute);
 
 //Ruta vista factura
 app.get("/invoices-view", invoicesViewRoute);
-app.post("/create-invoice", createInvoiceRoute); 
+// app.post('/invoices-view/:nro_factura/download', downloadInvoicePDF);
+
+//app.post("/create-invoices", createInvoiceRoute); 
 // app.get("/invoices/:id", getInvoiceRoute); 
 // app.put("/invoices/:id", updateInvoiceRoute); 
 // app.delete("/invoices/:id", deleteInvoiceRoute); 
 
-//Rutas Albaranes
-// app.get("/delivery-notes", deliveryNotesRoute);
+
 try {
   await db.authenticate();
   console.log("Está conectado");
