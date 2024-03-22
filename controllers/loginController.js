@@ -1,5 +1,6 @@
+// loginController.js
 import jwt from "jsonwebtoken";
-import LoginModel from "../models/loginModels.js";
+import LoginModel from "../models/loginModel.js";
 import User from '../models/usersModels.js';
 
 export const LoginUsers = async (req, res) => {
@@ -52,6 +53,14 @@ const getUsers = async (req, res) => {
 };
 
 export default getUsers;
+
+
+
+
+
+ 
+
+
 
 
 

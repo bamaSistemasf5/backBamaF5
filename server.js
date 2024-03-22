@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import db from './db.js';
+import db from './database/db.js';
 import loginRoutes from './routes/loginRoutes.js';
-import clientRoute from './routes/clientRoute.js';
-import clientsViewRoute from './routes/clientsViewRoute.js';
-import deleteClientRoute from './routes/deleteClientRoute.js';
-import updateClientRoute from './routes/updateClientRoute.js';
+import clientRoute from './routes/clientRoutes.js';
+import clientsViewRoute from './routes/clientRoutes.js';
+import deleteClientRoute from './routes/clientRoutes.js';
+import updateClientRoute from './routes/clientRoutes.js';
 import invoicesViewRoute from './routes/invoicesViewRoute.js';
 
 
