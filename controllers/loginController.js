@@ -1,4 +1,3 @@
-// loginController.js
 import jwt from "jsonwebtoken";
 import LoginModel from "../models/loginModels.js";
 import User from '../models/usersModels.js';
