@@ -1,28 +1,25 @@
 import express from 'express';
 import cors from 'cors';
-import db from './db.js';
+import db from './database/db.js';
+
+import clientRoutes from './routes/clientRoutes.js';
+import deliveryNotesRoutes from './routes/deliveryNotesRoutes.js';
 import loginRoutes from './routes/loginRoutes.js';
-import clientRoute from './routes/clientRoute.js';
-import clientsViewRoute from './routes/clientsViewRoute.js';
-import deleteClientRoute from './routes/deleteClientRoute.js';
-import updateClientRoute from './routes/updateClientRoute.js';
+import ordersRoutes from './routes/ordersRoutes.js';
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 // Configurar el middleware CORS
 app.use(cors());
 
-//Rutas Clientes
 app.use(express.json());
 app.use("/", loginRoutes);
-app.get("/clients-view", clientsViewRoute);
-app.delete("/clients-view/:id", deleteClientRoute);
-app.put("/update-client/:id", updateClientRoute); 
-app.get("/update-client/:id", updateClientRoute); 
-app.post("/create-client", clientRoute);
-//Rutas Albaranes
-// app.get("/delivery-notes", deliveryNotesRoute);
+app.use("/client", clientRoutes);
+app.use("/delivery-note", deliveryNotesRoutes);
+app.use("/order", ordersRoutes);
+
 try {
   await db.authenticate();
   console.log("Está conectado");

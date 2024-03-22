@@ -55,7 +55,7 @@ export const updateNote = async (req, res) => {
   }
 };
 
-export const deleteClient = async (req, res) => {
+export const deleteNote = async (req, res) => {
   const { id } = req.params;
   try {
     const note = await DevileryNotesModel.findByPk(id);
