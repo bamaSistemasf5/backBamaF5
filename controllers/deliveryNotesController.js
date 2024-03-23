@@ -1,4 +1,4 @@
-import { DevileryNotesModel } from "../models/deliveryNotesModel.js";
+import  DevileryNotesModel from "../models/deliveryNotesModel.js";
 
 export const createNote = async (req, res) => {
   try {
