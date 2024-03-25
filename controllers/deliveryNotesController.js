@@ -1,8 +1,9 @@
 import  DevileryNotesModel from "../models/deliveryNotesModel.js";
+import CreateDevileryNotesModel from "../models/createDeliveryNotesModel.js";
 
 export const createNote = async (req, res) => {
   try {
-    const newNote = await DevileryNotesModel.create(req.body);
+    const newNote = await CreateDevileryNotesModel.create(req.body);
     res.status(201).json(newNote);
   } catch (error) {
     console.log(error);

@@ -1,8 +1,9 @@
 import OrdersModel from "../models/ordersModel.js";
+import CreateOrdersModel from "../models/createOrdersModel.js";
 
 export const createOrder = async (req, res) => {
   try {
-    const newOrder = await OrdersModel.create(req.body);
+    const newOrder = await CreateOrdersModel.create(req.body);
     res.status(201).json(newOrder);
   } catch (error) {
     console.log(error);
@@ -38,11 +39,11 @@ export const getOrderById = async (req, res) => {
 export const updateOrder = async (req, res) => {
   const { id } = req.params;
   try {
-    const [updated] = await OrdersModel.update(req.body, {
+    const [updated] = await CreateOrdersModel.update(req.body, {
       where: { id_pedido: id },
     });
     if (updated) {
-      const updateOrder = await OrdersModel.findOne({
+      const updateOrder = await CreateOrdersModel.findOne({
         where: { id_pedido: id },
       });
       res.json(updateOrder);
@@ -55,18 +56,18 @@ export const updateOrder = async (req, res) => {
   }
 };
 
-export const deleteOrder = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const order = await OrdersModel.findByPk(id);
-    if (order) {
-      await order.destroy();
-      res.json(order);
-    } else {
-      res.status(404).json({ error: "Order not found" });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Error deleting order" });
-  }
-};
+// export const deleteOrder = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const order = await OrdersModel.findByPk(id);
+//     if (order) {
+//       await order.destroy();
+//       res.json(order);
+//     } else {
+//       res.status(404).json({ error: "Order not found" });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ error: "Error deleting order" });
+//   }
+// };
