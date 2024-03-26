@@ -10,10 +10,13 @@ const CreateinvoicesModel = db.define(
       autoIncrement: true,
     },
     id_pedido: {
-        type: DataTypes.INTEGER,
-        primaryKey: false,
-        autoIncrement: true,
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      references: {
+        model: "pedidos",
+        key: "id_pedido",
       },
+    },
     cif_cliente: {
       type: DataTypes.STRING(255),
       allowNull: true,

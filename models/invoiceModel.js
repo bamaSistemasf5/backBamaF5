@@ -36,11 +36,7 @@ const invoiceModel = db.define("vista_facturas", {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  // porc_iva: {
-  //   type: DataTypes.FLOAT,
-  //   allowNull: false
-  // },
-  iva_total: {
+  porcentaje_iva: {
     type: DataTypes.FLOAT,
     allowNull: false
   },

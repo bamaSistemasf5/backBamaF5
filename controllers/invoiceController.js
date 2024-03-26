@@ -1,6 +1,18 @@
 import PDFDocument from 'pdfkit';
 import fs from 'fs';
 import InvoiceModel from '../models/invoiceModel.js';
+import CreateinvoicesModel from '../models/createInvoices.js';
+
+
+export const createInvoice = async (req, res) => {
+  try {
+    const newInvoice = await CreateinvoicesModel.create(req.body);
+    res.status(201).json(newInvoice);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: error.message });
+  }
+};
 
 export const invoicesView = async (req, res) => {
   try {
