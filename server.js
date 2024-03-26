@@ -29,13 +29,18 @@ app.get("/invoices-view", invoicesViewRoute);
 // app.get("/invoices/:id", getInvoiceRoute); 
 // app.put("/invoices/:id", updateInvoiceRoute); 
 // app.delete("/invoices/:id", deleteInvoiceRoute);
+(async function () {
 try {
   await db.authenticate();
   console.log("Connection has been established successfully.");
 } catch (error) {
   console.log(error);
 }
+}) ();
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+export default app;
