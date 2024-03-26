@@ -1,30 +1,45 @@
-import db from "../db.js";
+import db from "../database/db.js";
 import { DataTypes } from "sequelize";
 
-const deliveryNotesModel = db.define("albaranes", {
-    id_albaran: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+const DevileryNotesModel = db.define(
+  "vista_albaranes",
+  {
+    "No albarán": {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      field: "No albarán" // Este atributo indica a Sequelize el nombre de la columna en la base de datos
     },
-    id_pedido: {
-        type: DataTypes.DATE,
-        allowNull: false
+    "Fecha albarán": {
+      type: DataTypes.DATE,
     },
-    cif_cliente: {
-        type: DataTypes.STRING,
-        allowNull: false
+    Cliente: {
+      type: DataTypes.STRING,
     },
-    concepto: {
-        type: DataTypes.STRING,
-        allowNull: false
+    "CIF cliente": {
+      type: DataTypes.STRING,
     },
-    importe: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: false
-    }
+    Importe: {
+      type: DataTypes.DECIMAL(37, 2),
     },
-    {
-    timestamps: false
-    });
+    "Facturado o no facturado": { // Nombre de la columna con espacios y caracteres especiales
+      type: DataTypes.STRING,
+      field: "Facturado o no facturado" // Nombre de la columna en la base de datos
+    },
+    Pedido: {
+      type: DataTypes.INTEGER,
+    },
+    Producto: {
+      type: DataTypes.INTEGER,
+    },
+    Firmado: {
+      type: DataTypes.BOOLEAN,
+    },
+  },
+  {
+    tableName: "vista_albaranes",
+    timestamps: false,
+  }
+);
+
+export default DevileryNotesModel;
+

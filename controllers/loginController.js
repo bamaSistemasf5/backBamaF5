@@ -1,6 +1,7 @@
 // loginController.js
 import jwt from "jsonwebtoken";
-import LoginModel from "../models/loginModels.js";
+import LoginModel from "../models/loginModel.js";
+import User from '../models/usersModels.js';
 
 export const LoginUsers = async (req, res) => {
     try {
@@ -37,8 +38,35 @@ export const LoginUsers = async (req, res) => {
 
 
 
+const getUsers = async (req, res) => {
+    const userId = req.params.id; // Corregido para que coincida con el nombre del parámetro en la ruta
+    try {
+        const user = await User.findByPk(userId);
+        if (!user) {
+            return res.status(404).json({ message: "User not found", userId });
+        }
+        res.status(200).json({ message: "User found", user });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error", userId });
+    }
+};
+
+export default getUsers;
 
 
+
+
+
+ 
+
+
+
+
+
+
+
+ 
 
 
 

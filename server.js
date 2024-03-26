@@ -1,20 +1,20 @@
-import express from 'express';
-import cors from 'cors';
-import db from './db.js';
-import loginRoutes from './routes/loginRoutes.js';
-import clientRoute from './routes/clientRoute.js';
-import clientsViewRoute from './routes/clientsViewRoute.js';
-import deleteClientRoute from './routes/deleteClientRoute.js';
-import updateClientRoute from './routes/updateClientRoute.js';
+import express from "express";
+import cors from "cors";
+import db from "./database/db.js";
+
+import clientRoutes from "./routes/clientRoutes.js";
+import deliveryNotesRoutes from "./routes/deliveryNotesRoutes.js";
+import loginRoutes from "./routes/loginRoutes.js";
+import ordersRoutes from "./routes/ordersRoutes.js";
+import invoicesViewRoute from "./routes/invoicesViewRoute.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Configurar el middleware CORS
 app.use(cors());
 
-//Rutas Clientes
 app.use(express.json());
+
 app.use("/", loginRoutes);
 app.use("/client", clientRoutes);
 app.use("/delivery-note", deliveryNotesRoutes);

@@ -1,7 +1,7 @@
-import db from "../db.js";
+import db from "../database/db.js";
 import { DataTypes } from "sequelize";
 
-const LoginModel = db.define("users", {
+const UsersModel = db.define("users", {
     id_user: {
         type: DataTypes.INTEGER,
         primaryKey: true
@@ -24,6 +24,4 @@ const LoginModel = db.define("users", {
     }
 });
 
-export default LoginModel;
-
-
+export default UsersModel;
