@@ -29,16 +29,20 @@ app.get("/invoices-view", invoicesViewRoute);
 // app.put("/invoices/:id", updateInvoiceRoute);
 // app.delete("/invoices/:id", deleteInvoiceRoute);
 
-export function startServer() {
-  const port = process.env.NODE_ENV === "test" ? 8001 : 8000;
-  const server = app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-  return server;
-}
+//  export function startServer() {
+//    const port = process.env.NODE_ENV === "test" ? 8001 : 8000;
+//   const server = app.listen(port, () => {
+//      console.log(`Server running on port ${port}`);
+//    });
+//    return server;
+//  }
 
-if (process.env.NODE_ENV !== "test") {
-  startServer();
-}
+//  if (process.env.NODE_ENV !== "test") {
+//    startServer();
+//}
+const PORT=3000
+ app.listen(PORT, () => {
+   console.log(`Server running on port ${PORT}`);
+ });
 
 export default app;
