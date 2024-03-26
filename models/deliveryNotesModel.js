@@ -4,34 +4,35 @@ import { DataTypes } from "sequelize";
 const DevileryNotesModel = db.define(
   "vista_albaranes",
   {
-    "No albarán": {
+    albaran: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      field: "No albarán" // Este atributo indica a Sequelize el nombre de la columna en la base de datos
+      field: 'albaran' // Aquí se utiliza 'albaran' como una cadena de caracteres
     },
-    "Fecha albarán": {
+    fecha_albaran: {
       type: DataTypes.DATE,
     },
-    Cliente: {
+    cliente: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    cif_cliente: {
       type: DataTypes.STRING,
     },
-    "CIF cliente": {
-      type: DataTypes.STRING,
-    },
-    Importe: {
+    importe: {
       type: DataTypes.DECIMAL(37, 2),
     },
-    "Facturado o no facturado": { // Nombre de la columna con espacios y caracteres especiales
+    facturado_o_no_facturado: {
       type: DataTypes.STRING,
-      field: "Facturado o no facturado" // Nombre de la columna en la base de datos
+      field: 'facturado_o_no_facturado' // Aquí también se utiliza 'facturado_o_no_facturado' como una cadena de caracteres
     },
-    Pedido: {
+    pedido: {
       type: DataTypes.INTEGER,
     },
-    Producto: {
+    producto: {
       type: DataTypes.INTEGER,
     },
-    Firmado: {
+    firmado: {
       type: DataTypes.BOOLEAN,
     },
   },
@@ -42,4 +43,5 @@ const DevileryNotesModel = db.define(
 );
 
 export default DevileryNotesModel;
+
 

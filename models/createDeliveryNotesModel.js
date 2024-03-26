@@ -17,7 +17,7 @@ const CreateDevileryNotesModel = db.define(
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
       },
-    Firmado: {
+    firmado: {
       type: DataTypes.BOOLEAN,
     },
   },
