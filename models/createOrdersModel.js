@@ -25,6 +25,14 @@ const CreateOrdersModel = db.define(
       type: DataTypes.DOUBLE,
       allowNull: true,
     },
+    iva_total: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    total: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
   },
   {
     tableName: "pedidos",
