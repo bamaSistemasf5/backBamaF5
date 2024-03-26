@@ -16,20 +16,29 @@ app.use(cors());
 //Rutas Clientes
 app.use(express.json());
 app.use("/", loginRoutes);
-app.get("/clients-view", clientsViewRoute);
-app.delete("/clients-view/:id", deleteClientRoute);
-app.put("/update-client/:id", updateClientRoute); 
-app.get("/update-client/:id", updateClientRoute); 
-app.post("/create-client", clientRoute);
-//Rutas Albaranes
-// app.get("/delivery-notes", deliveryNotesRoute);
-try {
-  await db.authenticate();
-  console.log("Está conectado");
-} catch (error) {
-  console.log(error);
+app.use("/client", clientRoutes);
+app.use("/delivery-note", deliveryNotesRoutes);
+app.use("/order", ordersRoutes);
+
+//Ruta vista factura
+app.get("/invoices-view", invoicesViewRoute);
+// app.post('/invoices-view/:nro_factura/download', downloadInvoicePDF);
+
+//app.post("/create-invoices", createInvoiceRoute);
+// app.get("/invoices/:id", getInvoiceRoute);
+// app.put("/invoices/:id", updateInvoiceRoute);
+// app.delete("/invoices/:id", deleteInvoiceRoute);
+
+export function startServer() {
+  const port = process.env.NODE_ENV === "test" ? 8001 : 8000;
+  const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+  return server;
 }
 
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  startServer();
+}
+
+export default app;
