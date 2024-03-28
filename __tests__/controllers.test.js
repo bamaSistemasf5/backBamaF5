@@ -42,11 +42,11 @@ describe("GET clients", () => {
     const response = await request(server).get("/test");
     expect(response.status).toBe(404);
   });
-  test("should return status code 200 when one single skill has been called", async () => {
+  test("should return status code 200 when one single client has been called", async () => {
     const response = await request(server).get(`/client/client/${newClientId}`);
     expect(response.status).toBe(200);
   });
-  test("should return status code 404 when one single skill has been called and it does not exist", async () => {
+  test("should return status code 404 when one single client has been called and it does not exist", async () => {
     const response = await request(server).get("/client/1232");
     expect(response.status).toBe(404);
   });
