@@ -4,10 +4,10 @@ import { DataTypes } from "sequelize";
 const DevileryNotesModel = db.define(
   "vista_albaranes",
   {
-    albaran: {
+    no_albaran: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      field: 'albaran' // Aquí se utiliza 'albaran' como una cadena de caracteres
+      field: 'no_albaran' // Aquí se utiliza 'albaran' como una cadena de caracteres
     },
     fecha_albaran: {
       type: DataTypes.DATE,
