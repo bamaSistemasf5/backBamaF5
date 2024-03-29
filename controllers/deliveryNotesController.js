@@ -40,11 +40,11 @@ export const updateNote = async (req, res) => {
   const { id } = req.params;
   try {
     const [updated] = await DevileryNotesModel.update(req.body, {
-      where: { No_albaran: id },
+      where: { no_albaran: id },
     });
     if (updated) {
       const updatedNote = await DevileryNotesModel.findOne({
-        where: { No_albaran: id },
+        where: { no_albaran: id },
       });
       res.json(updatedNote);
     } else {
